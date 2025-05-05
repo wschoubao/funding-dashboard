@@ -1,0 +1,15 @@
+# 忽略依赖和本地调试文件
+node_modules
+npm-debug.log
+npm-debug.*
+Dockerfile           # 可选：如果你不想把 Dockerfile 也打包进 context（一般不需要）
+.dockerignore
+
+# 忽略本地 IDE/系统文件
+.vscode
+.idea
+*.log
+.env
+
+# 如果你不需要在镜像里带 data 初始值，可以忽略 data
+# data
