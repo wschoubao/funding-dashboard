@@ -22,15 +22,15 @@ const exchangeConfigs = [
   { id: 'bybit',   options: { enableRateLimit: true } },
   { id: 'bitget',  options: { enableRateLimit: true } },
   { id: 'gate',    options: { enableRateLimit: true } },
-  { id: 'lbank',   options: { enableRateLimit: true } },
-  { id: 'bingx',   options: { enableRateLimit: true } },
+  // { id: 'lbank',   options: { enableRateLimit: true } },
+  // { id: 'bingx',   options: { enableRateLimit: true } },
   { id: 'mexc', options: { enableRateLimit: true } },
-  { id: 'okx', options: { enableRateLimit: false, defaultType: 'future' } },
-  { id: 'bitmart', options: { enableRateLimit: false } },
-  { id: 'kucoinfutures', options: { enableRateLimit: true } },
-  { id: 'whitebit', options: { enableRateLimit: true } },
-  { id: 'coinex', options: { enableRateLimit: true } },
-  { id: 'woo', options: { enableRateLimit: true } },
+  // { id: 'okx', options: { enableRateLimit: false, defaultType: 'future' } },
+  // { id: 'bitmart', options: { enableRateLimit: false } },
+  // { id: 'kucoinfutures', options: { enableRateLimit: true } },
+  // { id: 'whitebit', options: { enableRateLimit: true } },
+  // { id: 'coinex', options: { enableRateLimit: true } },
+  // { id: 'woo', options: { enableRateLimit: true } },
 ];
 
 // 单个交易所拉 funding rates
@@ -126,6 +126,8 @@ async function updateData() {
 
 // 首次执行 & 每 10 分钟执行一次
 updateData().catch(console.error);
+// fetchFunding.ts
 cron.schedule('*/10 * * * *', () => {
+  console.log(`[${new Date().toISOString()}] Cron(fetch) 任务触发`);
   updateData().catch(console.error);
 });

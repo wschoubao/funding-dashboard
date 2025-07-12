@@ -8,5 +8,5 @@ $(document).ready(function() {
     $('#fetchTime').text('数据获取时间：' + now.toLocaleString());
   });
   
-  setTimeout(() => location.reload(), 300 * 1000); // 30 分钟刷新
+  setTimeout(() => location.reload(), 300 * 1000);
 });
